@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block 'title' %}Inicio{% endblock  %}
+{% block 'main' %}
+    <form action="meteoro" method="GET">
+        {% csrf_token %}
+        <input type="datetime" name="inicio" placeholder="Pon la fecha de inicio">
+        <input type="datetime" name="fin" placeholder="Pon la fecha de fin">
+        <input type="submit" value="Enviar">
+    </form>
+{% endblock  %}

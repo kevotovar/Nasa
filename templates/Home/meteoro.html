@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block 'title' %}Meteoros{% endblock  %}
+{% block 'main' %}
+<div class="row">
+    <div class="col-xs-12">
+        <h1>Mucho meteoros pariente</h1>
+    </div>
+    {% for key,value in meteoros.items %}
+        {% for meteoro in value %}
+            <div class="card col-xs-6 col-md-3">
+                <div class="card-block">
+                    <h4 class="card-title">{{ meteoro.name }}</h4>
+                    <p class="card-text">
+                        Diametro: {{ meteoro.estimated_diameter.kilometers.estimated_diameter_max }} <br>
+                        Peligroso: {% if meteoro.is_potentially_hazardous_asteroid %}Peligroso pariente{% else %} 0 miedo {% endif %}
+                    </p>
+                    <a href="{{meteoro.nasa_jpl_url}}" target="_blank" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        {% endfor %}
+    {% endfor %}
+</div>
+{% endblock  %}
